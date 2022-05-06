@@ -34,7 +34,10 @@ const SocialLogin = () => {
 
 
 
-
+      let errorMessage;
+      if(error || error1 || error2){
+        errorMessage = <p className='text-danger'>Error: {error.message} {error1.message} {error2.message}</p>      
+      }
 
     return (
         <Container>
@@ -44,8 +47,9 @@ const SocialLogin = () => {
                 <div style={{height: '1px'}} className='w-50 bg-secondary'></div>
             </div>
             <Row>
+
                 <Col sm={12} md={12}>
-                    {/* {errorElement} */}
+                    {errorMessage}
                     <button 
                         onClick={() => signInWithGoogle()}
                         style={{borderRadius: '50px'}} className='w-100 p-3 border-secondary mb-2'>

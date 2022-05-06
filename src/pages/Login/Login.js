@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
 import { Button ,Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword , useSendPasswordResetEmail} from 'react-firebase-hooks/auth';
 import {useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import SocialLogin from './SocialLogin/SocialLogin';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
    
@@ -21,7 +23,11 @@ const Login = () => {
         error,
       ] = useSignInWithEmailAndPassword(auth);
 
-    if (error) {
+    const [sendPasswordResetEmail, sending, error1] = useSendPasswordResetEmail(
+        auth
+      );
+
+    if (error || error1) {
         return (
           <div>
             <p>Error: {error.message}</p>
@@ -52,6 +58,19 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
     }
 
+    // handle reset password
+    const handleResetPassword = async() => {
+        const email = emailRef.current.value;
+        await sendPasswordResetEmail(email)
+
+        if(email){
+            await sendPasswordResetEmail(email);
+            toast('Check Your Email');
+        }
+        else{
+            toast('Please Give Your Email'); 
+        }
+    }
 
 
     // redirect register page for new account
@@ -79,12 +98,12 @@ const Login = () => {
                 </Button>
 
 
-                <p className='mt-3'>Reset Password <span className='text-primary' style={{cursor: 'pointer'}} >Forgot Password</span></p>
+                <p onClick={handleResetPassword} className='mt-3'>Reset Password <span className='text-primary' style={{cursor: 'pointer'}} >Forgot Password</span></p>
 
                 <p onClick={navigateRegister} className='mt-3'>Dont't have an Account? <span className='text-primary' style={{cursor: 'pointer'}} >SIGN UP</span></p>
 
             </Form>
-            {/* <ToastContainer></ToastContainer> */}
+            <ToastContainer></ToastContainer>
             <div className='containr w-50 mx-auto'>
                 <SocialLogin></SocialLogin>
 
