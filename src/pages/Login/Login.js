@@ -1,9 +1,42 @@
 import React, { useRef } from 'react';
 import { Button ,Form } from 'react-bootstrap';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import {useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
 
 const Login = () => {
+   
     const navigate = useNavigate();
+
+    // input field useRef
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useSignInWithEmailAndPassword(auth);
+
+    if (error) {
+        return (
+          <div>
+            <p>Error: {error.message}</p>
+          </div>
+        );
+    }
+
+    if (user) {
+        return (
+          navigate('/')
+        );
+    }
+
+    if (loading) {
+        return <Loading></Loading> ;
+    }
 
 
 
@@ -11,6 +44,11 @@ const Login = () => {
     // form submit
     const handleSubmitForm = event => {
         event.preventDefault();
+
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+
+        signInWithEmailAndPassword(email, password);
     }
 
 
@@ -18,6 +56,8 @@ const Login = () => {
     // redirect register page for new account
     const navigateRegister = () => {
         navigate('/register');
+
+
     }
    
     return (
@@ -25,16 +65,16 @@ const Login = () => {
         <h3 className='text-center mt-3 w-100'>LogIn to Continue</h3>
             <Form onSubmit={handleSubmitForm} className='w-75 mx-auto border mt-2 p-5 text-dark shadow rounded'>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control  type="email" placeholder="Enter email" required />
+                    <Form.Control ref={emailRef}  type="email" placeholder="Enter email" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control type="password" placeholder="Password" required />
+                    <Form.Control ref={passwordRef} type="password" placeholder="Password" required />
                 </Form.Group>
 
 
                 <Button  variant="secondary" type="submit">
-                Get Started
+                Log In
                 </Button>
 
 
