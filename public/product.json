@@ -1,0 +1,64 @@
+[
+    {
+        "name": "Jean Paul Gaultier",
+        "img": "https://i.ibb.co/QrJjM0P/pd1.webp",
+        "description": "Opens with a note of black pepper to bring in some spice, but additional top notes include lemon and bergamot. ",
+        "price": 27.00,
+        "quantity": "10",
+        "supplierName": "Jhon David"
+
+
+    },
+    {
+        "name": "Nautica Voyage",
+        "img": "https://i.ibb.co/r7zXSBp/pd2.webp",
+        "description": "Opens with a note of black pepper to bring in some spice, but additional top notes include lemon and bergamot. ",
+        "price": 50.00,
+        "quantity": "5",
+        "supplierName": "David Alim"
+
+
+    },
+    {
+        "name": "oach For Men",
+        "img": "https://i.ibb.co/NFT3wfQ/pd3.webp",
+        "description": "Opens with a note of black pepper to bring in some spice, but additional top notes include lemon and bergamot. ",
+        "price": 19.00,
+        "quantity": "8",
+        "supplierName": "Kolim Uddin"
+
+
+    },
+    {
+        "name": "Ck One odur women",
+        "img": "https://i.ibb.co/bs32NML/pd4.webp",
+        "description": "Searobin freshwater hatchetfish sea bass orangestriped triggerfish white croaker. nclude lemon and bergamot.",
+        "price": 79.00,
+        "quantity": "7",
+        "supplierName": "Mishra kasim"
+
+
+    },
+    {
+        "name": "Perfume Travel Atomizer",
+        "img": "https://i.ibb.co/12sbM6L/pd5.webp",
+        "description": "Opens with a note of black pepper to bring in some spice, but additional top notes include lemon and bergamot. ",
+        "price": 70.00,
+        "quantity": "5",
+        "supplierName": "Jiya Mim"
+
+
+    },
+    {
+        "name": "Versace Dylan Blue",
+        "img": "https://i.ibb.co/bL9cNX4/pd6.webp",
+        "description": "Opens with a note of black pepper to bring in some spice, but additional top notes include lemon and bergamot. ",
+        "price": 29.00,
+        "quantity": "5",
+        "supplierName": "Kasim al shekh"
+
+
+    }
+
+
+]
