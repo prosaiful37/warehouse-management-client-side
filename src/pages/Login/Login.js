@@ -4,6 +4,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import {useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
+import SocialLogin from './SocialLogin/SocialLogin';
 
 const Login = () => {
    
@@ -85,7 +86,7 @@ const Login = () => {
             </Form>
             {/* <ToastContainer></ToastContainer> */}
             <div className='containr w-50 mx-auto'>
-                {/* <SocialLogin></SocialLogin> */}
+                <SocialLogin></SocialLogin>
 
             </div>
               
