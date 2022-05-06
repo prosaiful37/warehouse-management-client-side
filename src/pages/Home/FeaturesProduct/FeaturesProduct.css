@@ -1,0 +1,18 @@
+.home-banner{
+    background-image: url(../../../images/home1.jpg);
+    width: 100%;
+    background-size: cover;
+}.home-banner2{
+    background-image: url(../../../images/home2.jpg);
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.home-banner h2{
+    font-size: 40px;
+    font-style: oblique;
+}
+.home-banner2 h2 {
+    font-size: 40px;
+    font-style: oblique;
+}
