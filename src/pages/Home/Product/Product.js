@@ -1,8 +1,20 @@
 import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
+import { useNavigate } from 'react-router-dom';
 
 const Product = ({ product }) => {
-  const { name, img, description, price, quantity, supplierName } = product;
+  const {_id, name, img, description, price, quantity, supplierName } = product;
+  const navigete = useNavigate();
+
+
+
+  // navigate to single inventory
+  const navigateToInventory = (id) => {
+    navigete(`/inventory/${id}`);
+  }
+
+
+
   return (
     <Col>
       <Card className="bg-light shadow border-4">
@@ -25,7 +37,7 @@ const Product = ({ product }) => {
                      variant="primary" size="lg">
                     Book: {name}  <span><FaArrowRight></FaArrowRight></span>
                 </Button>{' '} */}
-          <Button className="d-block w-100" variant="outline-danger" size="lg">
+          <Button onClick={() => navigateToInventory(_id)} className="d-block w-100" variant="outline-danger" size="lg">
             UPDATE
           </Button>
         </Card.Body>

@@ -9,6 +9,7 @@ import Footer from './pages/Shared/Footer/Footer';
 import About from './pages/About/About';
 import Login from './pages/Login/Login';
 import Register from './pages/Login/Register/Register';
+import InventoryDetails from './InventoryDetails/InventoryDetails';
 
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
           <Route path='/about' element={<About></About>}></Route>
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/register' element={<Register></Register>}></Route>
+          
+          <Route path='/inventory/:inventoryId' element={<InventoryDetails></InventoryDetails>}></Route>
+
           <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
