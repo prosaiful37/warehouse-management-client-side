@@ -14,8 +14,10 @@ const Inventory = () => {
             <Row xs={1} md={3} className="g-4">
                 {
                     products.map(product => 
-                        <Product 
-                            product={product}>
+                        <Product
+                            key={product._id} 
+                            product={product}
+                            >
                         </Product>   
                     )
                 }

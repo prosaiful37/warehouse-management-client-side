@@ -8,11 +8,11 @@ const Product = ({ product }) => {
 
 
 
-  // navigate to single inventory
-  const navigateToInventory = (id) => {
-    navigete(`/inventory/${id}`);
-  }
 
+
+  const navigateToInventory = id => {
+    navigete(`/product/${id}`)
+  }
 
 
   return (
@@ -32,12 +32,7 @@ const Product = ({ product }) => {
             <h6>Quentity: {quantity}</h6>
             <h6>Supplier : {supplierName}</h6>
           </Card.Text>
-          {/* <Button
-                    onClick={() => navigateCheckOutPage(id)}  
-                     variant="primary" size="lg">
-                    Book: {name}  <span><FaArrowRight></FaArrowRight></span>
-                </Button>{' '} */}
-          <Button onClick={() => navigateToInventory(_id)} className="d-block w-100" variant="outline-danger" size="lg">
+          <Button onClick={() => navigateToInventory(_id)}  className="d-block w-100" variant="outline-danger" size="lg">
             UPDATE
           </Button>
         </Card.Body>
