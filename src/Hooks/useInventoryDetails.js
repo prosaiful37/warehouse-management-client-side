@@ -11,7 +11,7 @@ const useInventoryDetails = (inventoryId) => {
     },[inventoryId])
 
 
-    return [product];
+    return [product, setProduct];
 }
 
 
