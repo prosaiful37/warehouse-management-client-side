@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 // import useInventoryDetails from "../Hooks/useInventoryDetails";
 
 const InventoryDetails = () => {
   const { inventoryId } = useParams();
+  const navigate = useNavigate()
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
@@ -80,6 +81,11 @@ const InventoryDetails = () => {
 
 //   };
 
+
+// manage inventory
+const navigateToMange = () => {
+  navigate('/manageInventory')
+}
   
 
   return (
@@ -115,6 +121,8 @@ const InventoryDetails = () => {
 
               </div>
             </Card.Body>
+            
+          <Button onClick={() => navigateToMange()} variant="outline-dark">Manage inventory</Button>
           </Card>
         </Col>
       </Row>
