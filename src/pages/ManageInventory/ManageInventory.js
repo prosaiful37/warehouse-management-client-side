@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 import useInentory from "../../Hooks/useInventory";
 
 const ManageInventory = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
   const [products, setProducts] = useInentory();
 
   // data delete handle
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      const url = `http://localhost:5000/product/${id}`;
+      const url = `https://nameless-river-31040.herokuapp.com/product/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -24,16 +24,14 @@ const ManageInventory = () => {
     }
   };
 
-
-
-//   navigate to add invetory
+  //   navigate to add invetory
   const navigateToAddInventory = () => {
-    navigate('/addInventory')
-  }
+    navigate("/addInventory");
+  };
 
   return (
     <Container>
-        <h2 className="text-center my-5"> Our All Inventory</h2>
+      <h2 className="text-center my-5"> Our All Inventory</h2>
       <div>
         {products.map((product) => (
           <Table responsive="sm" striped bordered hover variant="light">
@@ -74,13 +72,17 @@ const ManageInventory = () => {
                   </Button>
                 </td>
                 <td>
-                  <Button onClick={() => navigateToAddInventory()} variant="primary">Add</Button>
+                  <Button
+                    onClick={() => navigateToAddInventory()}
+                    variant="primary"
+                  >
+                    Add
+                  </Button>
                 </td>
               </tr>
             </tbody>
           </Table>
         ))}
-        
       </div>
     </Container>
   );

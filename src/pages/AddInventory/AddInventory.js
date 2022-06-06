@@ -3,48 +3,36 @@ import React from "react";
 import { Container, Form } from "react-bootstrap";
 
 const AddInventory = () => {
+  // add hanele submit
+  const handleAddSubmit = (event) => {
+    event.preventDefault();
 
+    const name = event.target.name.value;
+    const description = event.target.description.value;
+    const price = event.target.price.value;
+    const quantity = event.target.quantity.value;
+    const supplierName = event.target.supplierName.value;
+    const img = event.target.img.value;
 
+    const inventory = { name, description, price, quantity, supplierName, img };
 
-    // add hanele submit 
-    const handleAddSubmit = event => {
-        event.preventDefault();
-
-        const name = event.target.name.value;
-        const description = event.target.description.value;
-        const price = event.target.price.value;
-        const quantity = event.target.quantity.value;
-        const supplierName = event.target.supplierName.value;
-        const img = event.target.img.value;
-
-        const inventory = {name, description, price, quantity, supplierName,img}
-
-        // add data to server
-        const url = `http://localhost:5000/product`;
-        fetch(url, {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(inventory),
-        })
-        .then((response) => response.json())
-        .then((result) => {
-          console.log(result);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-
-
-
-    }
-
-
-
-
-
-
+    // add data to server
+    const url = `https://nameless-river-31040.herokuapp.com/product`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(inventory),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
 
   return (
     <Container className="w-50 mx-auto my-5">
@@ -66,9 +54,13 @@ const AddInventory = () => {
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Control type="text" name="quantity" placeholder="Quentity" />
           </Form.Group>
-          
+
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Control type="text" name="supplierName" placeholder="Supplier" />
+            <Form.Control
+              type="text"
+              name="supplierName"
+              placeholder="Supplier"
+            />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -78,9 +70,7 @@ const AddInventory = () => {
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Control className="bg-info fs-5 " type="submit" value="ADD" />
           </Form.Group>
-
         </Form>
-
       </div>
     </Container>
   );

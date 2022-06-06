@@ -5,11 +5,11 @@ import { useParams, useNavigate } from "react-router-dom";
 
 const InventoryDetails = () => {
   const { inventoryId } = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:5000/product/${inventoryId}`;
+    const url = `https://nameless-river-31040.herokuapp.com/product/${inventoryId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProduct(data));
@@ -17,76 +17,63 @@ const InventoryDetails = () => {
 
   //handle quentity
   const inventoryQuentityDecrement = () => {
-    const oldNumbers = [product.quantity]
-        let newNumbers = parseInt(oldNumbers);
-    
-        newNumbers--;
-        console.log(newNumbers);
-      
+    const oldNumbers = [product.quantity];
+    let newNumbers = parseInt(oldNumbers);
 
-         //send data to server
-        const url = `http://localhost:5000/product/${inventoryId}`;
-        fetch(url, {
-            method: "PUT",
-            headers: {
-            contentType: "application/json"
-            },
-            body: JSON.stringify(newNumbers),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-            console.log("success, data");
-            alert("stock added successfullly");
-            });
+    newNumbers--;
+    console.log(newNumbers);
 
-      
-      
-
- };
+    //send data to server
+    const url = `https://nameless-river-31040.herokuapp.com/product/${inventoryId}`;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        contentType: "application/json",
+      },
+      body: JSON.stringify(newNumbers),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("success, data");
+        alert("stock added successfullly");
+      });
+  };
 
   //
 
-//   const handleInventoryQuentityIncrement = (event) => {
-//     event.preventDefault();
-    
-//     const name = event.target.name.value;
-//     const oldNumbers = [product.quantity]
-//     let newNumbers = parseInt(oldNumbers , name);
+  //   const handleInventoryQuentityIncrement = (event) => {
+  //     event.preventDefault();
 
-//     newNumbers++;
-//     console.log(newNumbers);
-    
+  //     const name = event.target.name.value;
+  //     const oldNumbers = [product.quantity]
+  //     let newNumbers = parseInt(oldNumbers , name);
 
-    // const updateProduct = {newNumbers};
+  //     newNumbers++;
+  //     console.log(newNumbers);
 
-    //   send data to server
-//   const url = `http://localhost:5000/product/${inventoryId}`;
-//   fetch(url, {
-//     method: "PUT",
-//     headers: {
-//       contentType: "application/json"
-//     },
-//     body: JSON.stringify(updateProduct),
-//   })
-//     .then((res) => res.json())
-//     .then((data) => {
-//       console.log("success, data");
-//       alert("stock added successfullly");
-//     });
+  // const updateProduct = {newNumbers};
 
+  //   send data to server
+  //   const url = `https://nameless-river-31040.herokuapp.com/product/${inventoryId}`;
+  //   fetch(url, {
+  //     method: "PUT",
+  //     headers: {
+  //       contentType: "application/json"
+  //     },
+  //     body: JSON.stringify(updateProduct),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log("success, data");
+  //       alert("stock added successfullly");
+  //     });
 
+  //   };
 
-
-
-
-//   };
-
-
-// manage inventory
-const navigateToMange = () => {
-  navigate('/manageInventory')
-}
-  
+  // manage inventory
+  const navigateToMange = () => {
+    navigate("/manageInventory");
+  };
 
   return (
     <Container className="my-5">
@@ -113,16 +100,16 @@ const navigateToMange = () => {
                 Delivered
               </Button>
               <div className="mt-3">
-
-                <form   action="">
-                  <input type="number" name='name' />
+                <form action="">
+                  <input type="number" name="name" />
                   <input type="submit" value="Restock" />
                 </form>
-
               </div>
             </Card.Body>
-            
-          <Button onClick={() => navigateToMange()} variant="outline-dark">Manage inventory</Button>
+
+            <Button onClick={() => navigateToMange()} variant="outline-dark">
+              Manage inventory
+            </Button>
           </Card>
         </Col>
       </Row>
