@@ -5,6 +5,8 @@ This project is [Perfume collection site live link](https://perfume-inventory.we
 ## This Website Features
 
     <ul>
-    <li>This Website is inventory management system with perfume house inventory</li>
+        <li>
+            This Website is inventory management system with perfume house inventory
+        </li>
 
     </ul>
