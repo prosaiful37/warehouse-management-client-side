@@ -2,5 +2,7 @@
 
 This project is [Perfume collection site live link](https://perfume-inventory.web.app/).
 
-## Available Scripts
+## This Website Features
+
+    <li>This Website is inventory management system with perfume house inventory</li>
 
